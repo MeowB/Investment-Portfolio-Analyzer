@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from services.finnhub import fetch_stock_data
+from ..services.finnhub import fetch_stock_data
 
 api = Blueprint('api', __name__)
 
