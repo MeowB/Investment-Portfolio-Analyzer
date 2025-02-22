@@ -1,5 +1,17 @@
 @import './styles/helpers/variables.scss';
 
+#root > div{
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	grid-template-columns: 1fr;
+
+	.Toastify{
+		position: absolute;
+	}
+}
+
 body {
 	font-family: Arial, sans-serif;
 	background-color: $background-color;

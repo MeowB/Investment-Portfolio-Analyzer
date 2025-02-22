@@ -1,0 +1,47 @@
+.single-portfolio {
+  background-color: #F5F5F5;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 800px;
+  position: relative;
+}
+.single-portfolio .portfolio-actions {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+.single-portfolio .portfolio-actions svg {
+  color: #4CAF50;
+  cursor: pointer;
+  transition: color 0.2s;
+  width: 24px;
+  height: 24px;
+}
+.single-portfolio .portfolio-actions svg:hover {
+  color: #3d8b40;
+}
+.single-portfolio h1 {
+  color: #4CAF50;
+  margin-bottom: 10px;
+}
+.single-portfolio p {
+  color: #333333;
+  margin: 10px 0;
+  line-height: 1.5;
+}
+.single-portfolio .chart-container {
+  background-color: #FFFFFF;
+  border: 1px solid #4CAF50;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 20px;
+  text-align: center;
+}
+.single-portfolio .chart-container div {
+  height: 300px;
+  background-color: #e0e0e0;
+}/*# sourceMappingURL=PortfolioPage.css.map */

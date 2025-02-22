@@ -1,0 +1,30 @@
+.portfolio-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #F5F5F5;
+  padding: 20px;
+}
+
+.portfolio-card {
+  background-color: #FFFFFF;
+  border: 1px solid #4CAF50;
+  border-radius: 5px;
+  padding: 15px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+.portfolio-card:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+}
+.portfolio-card h3 {
+  color: #4CAF50;
+  margin-bottom: 10px;
+}
+.portfolio-card p {
+  color: #333333;
+  margin: 10px 0;
+  line-height: 1.5;
+}/*# sourceMappingURL=PortfolioList.css.map */

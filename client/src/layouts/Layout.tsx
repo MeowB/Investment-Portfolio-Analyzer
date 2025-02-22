@@ -13,7 +13,7 @@ const layout = ({ children }: any) => {
 				</main>
 			<Footer />
 			<ToastContainer
-				position="top-center"
+				position="top-right"
 				autoClose={3000}
 				hideProgressBar={false}
 				newestOnTop={false}

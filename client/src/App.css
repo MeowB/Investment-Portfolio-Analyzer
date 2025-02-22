@@ -1,3 +1,14 @@
+#root > div {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  grid-template-columns: 1fr;
+}
+#root > div .Toastify {
+  position: absolute;
+}
+
 body {
   font-family: Arial, sans-serif;
   background-color: #F5F5F5;
@@ -17,4 +28,4 @@ header h1 {
 
 main {
   padding: 20px;
-}/*# sourceMappingURL=app.css.map */
+}/*# sourceMappingURL=App.css.map */

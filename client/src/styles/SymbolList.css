@@ -1,0 +1,26 @@
+.symbols-list {
+  background-color: #FFFFFF;
+  border: 1px solid #4CAF50;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 20px;
+}
+.symbols-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+.symbols-list ul li {
+  color: #333333;
+  margin: 5px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.symbols-list ul li svg {
+  width: 18px;
+  height: 18px;
+  color: #4CAF50;
+}
+.symbols-list ul li:nth-child(odd) {
+  background-color: #e0e0e0;
+}/*# sourceMappingURL=SymbolList.css.map */

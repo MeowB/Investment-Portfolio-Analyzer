@@ -8,17 +8,17 @@ const Header = () => {
 				<h1 className="nav-logo"><Link to='/'>Investment Portfolio Analyzer</Link></h1>
 				<ul>
 					<li className="nav-item">
-						<Link to="\">
+						<Link to="/">
 							Home
 						</Link>
 					</li>
 					<li className="nav-item">
-						<Link to="\create">
+						<Link to="/create">
 							Create Portfolio
 						</Link>
 					</li>
 					<li className="nav-item">
-						<Link to="\portfolios">
+						<Link to="/portfolios">
 							View Portfolio
 						</Link>
 					</li>
