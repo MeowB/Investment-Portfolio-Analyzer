@@ -1,0 +1,9 @@
+@import './helpers/variables.scss';
+
+footer {
+	background-color: $header-background-color;
+	padding: 20px;
+	text-align: center;
+	color: $secondary-color;
+	box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,22 @@
+@import './styles/helpers/variables.scss';
+
+body {
+	font-family: Arial, sans-serif;
+	background-color: $background-color;
+	color: $text-color;
+}
+
+header {
+	background-color: $header-background-color;
+	color: $secondary-color;
+	padding: 20px;
+	text-align: center;
+}
+
+header h1 {
+	font-size: 2rem;
+}
+
+main {
+	padding: 20px;
+}
