@@ -1,11 +1,11 @@
 from flask import Blueprint, jsonify, request
-from ..services.finnhub import fetch_stock_data
+from ...services.finnhub import fetch_stock_data
 
-api = Blueprint('api', __name__)
+getStocks_bp = Blueprint('getStocks', __name__)
 
 
 # Fetch stock data
-@api.route('/stocks', methods=['GET'])
+@getStocks_bp.route('/stocks', methods=['GET'])
 def get_stock():
 	symbol = request.args.get('symbol')
 

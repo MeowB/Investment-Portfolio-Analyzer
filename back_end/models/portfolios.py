@@ -9,7 +9,7 @@ class Portfolios(db.Model):
 	description = db.Column(db.String(255), nullable=True)
 	timestamp = db.Column(db.DateTime, default=datetime.now)
 
-	stocks = db.relationship('PortfoliosStock', backref='portfolio', lazy=True)
+	stocks = db.relationship('PortfoliosStock', backref='portfolio', cascade='all, delete-orphan')
 	def to_dict(self):
 		return {
 			'id': self.id,

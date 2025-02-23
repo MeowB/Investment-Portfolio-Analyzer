@@ -1,4 +1,5 @@
 import axios from "axios"
+import { toast } from "react-toastify"
 const API_URL = 'http://127.0.0.1:5000/api'
 
 export const fetchPortfoliosList = async () => {
@@ -35,15 +36,17 @@ export const deletePortfolio = async (id: string | undefined) => {
 		const response = await axios.delete(`${API_URL}/portfolios/${id}`)
 		if (response.status === 200) {
 			console.log("Portfolio deleted:", response.data);
+			toast.success("portfolio deleted successfully")
 		} else {
 			console.error("Failed to delete portfolio:", response.data);
 		}
 	} catch (error) {
+		toast.error("Error deleting the portfolio")
 		console.error("Error deleting portfolio:", error)
 	}
 }
 
-export const fetchPortfolioData = async (id) => {
+export const fetchPortfolioData = async (id: string) => {
 	try {
 		const response = await axios.get(`${API_URL}/portfolios/${id}/stocks`)
 		return response.data

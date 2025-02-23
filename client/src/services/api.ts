@@ -11,3 +11,13 @@ export const fetchStockData = async (symbol: string) => {
 		return null
 	}
 }
+
+export const fetchPortfolioStockValues = async (id: string) => {
+	try {
+		const response = await axios.get(`${API_URL}/portfolios/${id}/stocks-values`)
+		return response.data.stock_values
+	} catch (error) {
+		console.error('Error fetching stock values:', error)
+		return {}
+	}
+}

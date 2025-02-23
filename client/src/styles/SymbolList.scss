@@ -18,10 +18,38 @@
 			justify-content: space-between;
 			align-items: center;
 
+			.primary-content {
+				display: flex;
+				flex-direction: column;
+				gap: 5px;
+				padding: 5px 20px;
+
+				h3 {
+					color: $primary-color
+				}
+
+				span {
+					font-size: 14px;
+				}
+			}
+
+			.delete-button {
+				background: none;
+				border: none;
+				cursor: pointer;
+				color: $primary-color;
+				transition: color 0.3s;
+				padding-right: 20px;
+
+				&:hover {
+					color: darken($primary-color, 10%);
+				}
+			}
+
 			svg {
 				width: 18px;
 				height: 18px;
-				color: $primary-color;
+				color: inherit;
 			}
 		}
 

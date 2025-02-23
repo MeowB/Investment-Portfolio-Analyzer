@@ -1,9 +1,9 @@
 from flask import Blueprint, jsonify
 from back_end.models.portfolios import Portfolios, PortfoliosStock
 
-PortfolioSymbols_GET_bp = Blueprint('portfolio_symbols_get', __name__)
+PortfolioData_GET_bp = Blueprint('portfolio_data_get', __name__)
 
-@PortfolioSymbols_GET_bp.route('/api/portfolios/<int:id>/stocks', methods=['GET'])
+@PortfolioData_GET_bp.route('/api/portfolios/<int:id>/stocks', methods=['GET'])
 def get_stock_by_portfolio(id):
 	portfolio = Portfolios.query.get(id)
 	if not portfolio:
