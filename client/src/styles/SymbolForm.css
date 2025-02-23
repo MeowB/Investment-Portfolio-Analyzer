@@ -1,0 +1,16 @@
+.symbol-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.symbol-field label {
+  display: flex;
+  flex-direction: column;
+}
+.symbol-field svg {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}/*# sourceMappingURL=SymbolForm.css.map */

@@ -17,6 +17,7 @@
   align-items: center;
 }
 .symbols-list ul li .primary-content {
+  width: 250px;
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -27,6 +28,15 @@
 }
 .symbols-list ul li .primary-content span {
   font-size: 14px;
+}
+.symbols-list ul li .secondary-content {
+  width: 190px;
+}
+.symbols-list ul li .secondary-content .profit {
+  color: green;
+}
+.symbols-list ul li .secondary-content .loss {
+  color: red;
 }
 .symbols-list ul li .delete-button {
   background: none;

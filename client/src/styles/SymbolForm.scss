@@ -1,0 +1,18 @@
+.symbol-field {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 10px;
+
+	label {
+		display: flex;
+		flex-direction: column;
+	}
+
+	svg {
+		cursor: pointer;
+		width: 18px;
+		height: 18px;
+	}
+}

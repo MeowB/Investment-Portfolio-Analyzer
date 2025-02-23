@@ -27,8 +27,12 @@
 				color: darken($primary-color, 10%);
 			}
 		}
+
 	}
 
+	form {
+		margin-top: 38px;
+	}
 	h1 {
 		color: $primary-color;
 		margin-bottom: 10px;

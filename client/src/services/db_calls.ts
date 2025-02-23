@@ -9,6 +9,7 @@ export const fetchPortfoliosList = async () => {
 		return response.data
 	} catch (error) {
 		console.error('Error fetching portfolios list: ', error)
+		toast.error('Error fetching portfolios list: ')
 		return null
 	}
 }
@@ -22,6 +23,7 @@ export const fetchPortfolio = async (id: string | undefined) => {
 		return response.data
 	} catch (error) {
 		console.error('Error fetching portfolio: ', error)
+		toast.error('Error fetching portfolio')
 		return null
 	}
 }
@@ -52,5 +54,23 @@ export const fetchPortfolioData = async (id: string) => {
 		return response.data
 	} catch (error) {
 		console.error('Error fetching portfolio stock data:', error)
+		toast.error('Error fetching portfolio stock data:')
+	}
+}
+
+export const deleteSymbolFromPortfolio = async (portfolioId: string, symbol: string, puchasedPrice: number) => {
+	try {
+		const response = await axios.delete(`${API_URL}/portfolios/${portfolioId}/delete-stock`, {
+			data: {
+				portfolio_id: portfolioId,
+				symbol: symbol,
+				purchased_price: puchasedPrice
+			}
+		})
+		console.log("Symbol deleted:", response.data)
+		return response.data
+	} catch (error) {
+		console.error("Error deleting symbol", error)
+		toast.error("Error deleting symbol")
 	}
 }

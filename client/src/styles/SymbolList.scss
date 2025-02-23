@@ -19,6 +19,7 @@
 			align-items: center;
 
 			.primary-content {
+				width: 250px;
 				display: flex;
 				flex-direction: column;
 				gap: 5px;
@@ -30,6 +31,18 @@
 
 				span {
 					font-size: 14px;
+				}
+			}
+
+			.secondary-content {
+				width: 190px;
+
+				.profit {
+					color: green;
+				}
+
+				.loss {
+					color: red;
 				}
 			}
 

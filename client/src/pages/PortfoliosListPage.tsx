@@ -6,21 +6,21 @@ import { Link } from "react-router-dom"
 const PortfolioListPage = () => {
 	let [portfolioList, setPortfolioList] = useState([])
 
-	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const response = await fetchPortfoliosList()
-				setPortfolioList(response)
-			} catch (error) {
-				console.error("Error fetching portfolios:", error)
-			}
+	const fetchData = async () => {
+		try {
+			const response = await fetchPortfoliosList()
+			setPortfolioList(response)
+		} catch (error) {
+			console.error("Error fetching portfolios:", error)
 		}
+	}
+	
+	useEffect(() => {
 		fetchData()
-
 	}, [])
 
 	const formatTimestamp = (timestamp: string) => {
-		return new Date(timestamp).toISOString().slice(0, 19).replace('T', ' ')
+		return new Date(timestamp).toISOString().slice(0, 19).replace('T', '')
 	}
 
 	return (

@@ -6,7 +6,6 @@ Portfolios_DELETE_by_id_bp = Blueprint('portfolios_delete_by_id', __name__)
 
 @Portfolios_DELETE_by_id_bp.route('/api/portfolios/<int:id>', methods=['DELETE', 'OPTIONS'])
 def delete_portfolio_by_id(id):	
-	print('hitting route delete')
 
 	if request.method == 'OPTIONS':
 		return '', 200

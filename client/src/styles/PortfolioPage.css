@@ -24,6 +24,9 @@
 .single-portfolio .portfolio-actions svg:hover {
   color: #3d8b40;
 }
+.single-portfolio form {
+  margin-top: 38px;
+}
 .single-portfolio h1 {
   color: #4CAF50;
   margin-bottom: 10px;

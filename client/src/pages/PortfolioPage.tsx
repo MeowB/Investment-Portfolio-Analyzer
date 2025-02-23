@@ -12,29 +12,33 @@ const PortfolioPage = () => {
 	const [portfolio, setPortfolio] = useState<any>(null)
 	const [editPortfolio, setEditPortfolio] = useState<boolean>(false)
 
-	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				let response = await fetchPortfolio(id)
-				setPortfolio(response)
-			} catch (error) {
-				console.error("Error fetching portfolio:", error)
-			}
+	const fetchData = async () => {
+		try {
+			let response = await fetchPortfolio(id)
+			setPortfolio(response)
+		} catch (error) {
+			console.error("Error fetching portfolio:", error)
 		}
-
-		fetchData()
-	}, [id])
-
+	}
+	
 	const handleEdit = () => {
 		setEditPortfolio(!editPortfolio)
 		console.log("Edit portfolio:", id)
 	}
-
+	
 	const handleDelete = async () => {
-		await deletePortfolio(id)
-		navigate('/portfolios')
-		console.log("Delete portfolio:", id)
+		let alert = window.confirm(`Are you sure you want to delete the Portfolio "${portfolio.name}"`)
+		if (alert === true){
+			await deletePortfolio(id)
+			navigate('/portfolios')
+			console.log("Delete portfolio:", id)
+
+		}
 	}
+	
+	useEffect(() => {
+		fetchData()
+	}, [id])
 
 	return (
 		<div>
@@ -67,7 +71,7 @@ const PortfolioPage = () => {
 						{/* Placeholder for the pie chart */}
 						<div></div>
 					</div>
-					<SymbolList portfolioId={id} />
+					<SymbolList portfolioId={id}/>
 				</div>
 			) : (
 				<p>Loading...</p>
