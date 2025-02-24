@@ -11,7 +11,6 @@ FINNHUB_API_KEY = os.getenv('FINNHUB_API_KEY')
 
 from flask import Blueprint, jsonify
 from back_end.models.portfolios import Portfolios
-from app import db
 
 Stocks_GET_values_by_portfolio_bp = Blueprint('stocks_GET_values_by_portfolio', __name__)
 
