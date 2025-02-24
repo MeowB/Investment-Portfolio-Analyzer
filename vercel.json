@@ -1,0 +1,9 @@
+{
+	"rewrites": [
+	  {
+		"source": "/api/:path*",
+		"destination": "https://portfolio-analyzer-9aa13095c684.herokuapp.com/api/:path*"
+	  }
+	]
+  }
+  

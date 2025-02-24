@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
 	proxy: {
-		'/api': 'https://portfolio-analyzer-9aa13095c684.herokuapp.com/'
+		'/api': 'https://portfolio-analyzer-9aa13095c684.herokuapp.com'
 	}
   }
 })
