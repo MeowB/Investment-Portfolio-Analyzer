@@ -20,7 +20,7 @@ import os
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = '/instance/stocks_portfolios.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///instance/stocks_portfolios.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 if not os.path.exists('instance/stocks_portfolios.db'):
