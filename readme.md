@@ -63,7 +63,7 @@ Profit/Loss = ($130 - $150) * 10 = $200 loss
 
 You can access the deployed version of the **Investment Portfolio Analyzer** here:
 
-[**Live Demo Link**]([https://investment-portfolio-analyzer.vercel.app/])
+[**Live Demo Link**](https://investment-portfolio-analyzer.vercel.app/)
 
 ## **Future Enhancements**
 - Add user authentication for personalized portfolio management.
