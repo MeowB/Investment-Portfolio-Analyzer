@@ -30,7 +30,7 @@ const PortfolioListPage = () => {
 					<div>
 						<h3>{portfolio.name}</h3>
 						<p>Description: <br /> {portfolio.description}</p>
-						<p>Created on {formatTimestamp(portfolio.timestamp)}</p>
+						<p>Created on {formatTimestamp(portfolio.timestamp).slice(0, 10)}</p>
 					</div>
 				</Link>
 			))}
