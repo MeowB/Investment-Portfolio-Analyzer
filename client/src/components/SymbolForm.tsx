@@ -44,7 +44,7 @@ const SymbolForm = ({ portfolioId, setRefresh }: { portfolioId: string, setRefre
 		});
 
 		try {
-			const response = await axios.post(`${env.BACKEND_API_URL}/api/portfolios/${portfolioId}/add-stocks`, {
+			const response = await axios.post(`/api/portfolios/${portfolioId}/add-stocks`, {
 				symbols_data: data
 			})
 
