@@ -3,7 +3,6 @@ import { FormEvent, useEffect, useState } from "react"
 import '../styles/forms.css'
 import { toast } from "react-toastify"
 import { useNavigate } from "react-router-dom"
-import env from "react-dotenv"
 
 interface CreatePortfolioFormProps {
 	portfolioName?: string;
@@ -34,7 +33,7 @@ const CreatePortfolioForm = ({ portfolioName = "", portfolioDescription = "", ed
 
 		try {
 			if (edit) {
-				const response = await axios.put(`${env.BACKEND_API_URL}/api/portfolios/${id}`, {
+				const response = await axios.put(`/api/portfolios/${id}`, {
 					id,
 					new_name: name,
 					new_description: description

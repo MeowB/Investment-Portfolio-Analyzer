@@ -16,7 +16,6 @@ const SymbolList = ({ portfolioId }: { portfolioId: string}) => {
 	const fetchDbData = async () => {
 		const data = await fetchPortfolioData(portfolioId)
 		setSymbols(data.stocks)
-		console.log(data.stocks)
 	}
 
 	const fetchApiData = async () => {

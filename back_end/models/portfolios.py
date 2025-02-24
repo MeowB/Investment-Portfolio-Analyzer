@@ -6,7 +6,7 @@ db = SQLAlchemy()
 class Portfolios(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	name = db.Column(db.String(100), nullable=False)
-	description = db.Column(db.String(255), nullable=True)
+	description = db.Column(db.String(200), nullable=True)
 	timestamp = db.Column(db.DateTime, default=datetime.now)
 
 	stocks = db.relationship('PortfoliosStock', backref='portfolio', cascade='all, delete-orphan')
@@ -23,4 +23,4 @@ class PortfoliosStock(db.Model):
     stock_symbol = db.Column(db.String(10), nullable=False)
     quantity = db.Column(db.Integer, nullable=False)
     purchase_price = db.Column(db.Float, nullable=False)
-    portfolio_id = db.Column(db.Integer, db.ForeignKey('portfolios.id'), nullable=False) 
+    portfolio_id = db.Column(db.Integer, db.ForeignKey('portfolios.id'), nullable=False)
