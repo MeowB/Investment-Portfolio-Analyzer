@@ -3,7 +3,6 @@ import "../styles/SymbolForm.css";
 import { toast } from "react-toastify"
 import axios from "axios"
 import { FaXmark } from "react-icons/fa6";
-import env from "react-dotenv";
 
 interface SymbolField {
 	symbol: string;
