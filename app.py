@@ -26,7 +26,7 @@ with app.app_context():
 	init_db(app)
 
 CORS(app)
-CORS(app, resources={r"/api/*": {"origins": "http://localhost:5173"}})
+CORS(app, resources={r"/api/*": {"origins": "https://investment-portfolio-analyzer.vercel.app/"}})
 
 app.register_blueprint(getStocks_bp, url_prefix='/api')
 app.register_blueprint(Portfolios_GET_bp)
