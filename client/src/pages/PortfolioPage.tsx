@@ -12,6 +12,11 @@ const PortfolioPage = () => {
 	const [portfolio, setPortfolio] = useState<any>(null)
 	const [editPortfolio, setEditPortfolio] = useState<boolean>(false)
 
+	if (typeof(id) !== 'string') {
+		console.error('Invalid ID: The provided ID must be a string.')
+		return <p>Error: Invalid portfolio ID.</p>
+	}
+
 	const fetchData = async () => {
 		try {
 			let response = await fetchPortfolio(id)
@@ -32,7 +37,6 @@ const PortfolioPage = () => {
 			await deletePortfolio(id)
 			navigate('/portfolios')
 			console.log("Delete portfolio:", id)
-
 		}
 	}
 	

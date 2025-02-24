@@ -4,9 +4,18 @@ import '../styles/forms.css'
 import { toast } from "react-toastify"
 import { useNavigate } from "react-router-dom"
 
-const CreatePortfolioForm = ({ portfolioName, portfolioDescription, edit, id, setEditPortfolio, setPortfolio }: {portfolioName: string, portfolioDescription: string, edit: boolean, id: string | undefined, setEditPortfolio: any, setPortfolio: any}) => {
-	const [name, setName] = useState("")
-	const [description, setDescription] = useState("")
+interface CreatePortfolioFormProps {
+	portfolioName?: string;
+	portfolioDescription?: string;
+	edit?: boolean;
+	id?: string;
+	setEditPortfolio?: any;
+	setPortfolio?: any;
+}
+
+const CreatePortfolioForm = ({ portfolioName = "", portfolioDescription = "", edit = false, id, setEditPortfolio, setPortfolio }: CreatePortfolioFormProps) => {
+	const [name, setName] = useState(portfolioName)
+	const [description, setDescription] = useState(portfolioDescription)
 	let navigate = useNavigate()
 
 	useEffect(() => {

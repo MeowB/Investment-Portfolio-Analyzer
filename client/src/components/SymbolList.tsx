@@ -8,7 +8,7 @@ import SymbolForm from "./SymbolForm"
 import { deleteSymbolFromPortfolio } from "../services/db_calls"
 import { toast } from "react-toastify"
 
-const SymbolList = ({ portfolioId }: { portfolioId: string, setRefresh: any }) => {
+const SymbolList = ({ portfolioId }: { portfolioId: string}) => {
 	const [symbols, setSymbols] = useState<any[]>([])
 	const [stockValue, setStockValue] = useState<{ [key: string]: StockValue }>({})
 	const [refresh, setRefresh] = useState<boolean>(true)
@@ -40,7 +40,7 @@ const SymbolList = ({ portfolioId }: { portfolioId: string, setRefresh: any }) =
 		return (stockValue[stock.stock_symbols].current_price * stock.quantity).toFixed(2)
 	}
 
-	const handleDeleteSymbol = async (id, symbol, purchasedPrice) => {
+	const handleDeleteSymbol = async (id: string, symbol: string, purchasedPrice: number) => {
 
 		let alert = window.confirm(`Are you sure you want to delete ${symbol} ?`)
 
