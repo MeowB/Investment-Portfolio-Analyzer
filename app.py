@@ -22,8 +22,8 @@ app.config['DEBUG'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///stocks_portfolios.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# with app.app_context():
-# 	init_db(app)
+with app.app_context():
+	init_db(app)
 
 CORS(app)
 CORS(app, resources={r"/api/*": {"origins": "http://localhost:5173"}})
@@ -42,11 +42,11 @@ app.register_blueprint(Stocks_DELETE_by_specifics)
 app.cli.add_command(fill_db)
 
 
-@app.cli.command("init-db")
-def init_db_command():
-	with app.app_context():
-		init_db(app)
-		print("database initialized")
+# @app.cli.command("init-db")
+# def init_db_command():
+# 	with app.app_context():
+# 		init_db(app)
+# 		print("database initialized")
 
 if __name__ == '__main__':
 	app.run(debug=True)
