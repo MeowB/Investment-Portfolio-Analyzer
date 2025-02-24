@@ -19,6 +19,7 @@ export const fetchPortfolio = async (id: string | undefined) => {
 		if (!id) {
 			throw new Error("Portfolio ID is required")
 		}
+		
 		const response = await axios.get(API_URL + `/portfolios/${id}`)
 		return response.data
 	} catch (error) {
