@@ -6,8 +6,7 @@
 	  },
 	  {
 		"source": "/:match*",
-		"destination": "/index.html",
-		"permanent": false
+		"destination": "/index.html"
 	  }
 	]
   }
