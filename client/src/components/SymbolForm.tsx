@@ -3,6 +3,7 @@ import "../styles/SymbolForm.css";
 import { toast } from "react-toastify"
 import axios from "axios"
 import { FaXmark } from "react-icons/fa6";
+import env from "react-dotenv";
 
 interface SymbolField {
 	symbol: string;
@@ -43,7 +44,7 @@ const SymbolForm = ({ portfolioId, setRefresh }: { portfolioId: string, setRefre
 		});
 
 		try {
-			const response = await axios.post(`/api/portfolios/${portfolioId}/add-stocks`, {
+			const response = await axios.post(`${env.BACKEND_API_URL}/api/portfolios/${portfolioId}/add-stocks`, {
 				symbols_data: data
 			})
 
