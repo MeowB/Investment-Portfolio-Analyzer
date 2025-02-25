@@ -58,15 +58,12 @@ const SymbolList = ({ portfolioId, chartDataCallback }: { portfolioId: string, c
 			await fetchApiData()
 			await fetchDbData()
 			setRefresh(false)
+			if (symbols.length > 0 && Object.entries(stockValue).length > 0) {
+				chartDataCallback(symbols, stockValue)
+			}
 		}
 		fetchData()
 	}, [portfolioId, refresh])
-
-	useEffect(() => {
-		if (symbols.length > 0 && Object.entries(stockValue).length > 0) {
-			chartDataCallback(symbols, stockValue)
-		}
-	}, [symbols, stockValue])
 
 	return (
 		<div className="symbols-list">
