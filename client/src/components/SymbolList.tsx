@@ -8,8 +8,8 @@ import SymbolForm from "./SymbolForm"
 import { deleteSymbolFromPortfolio } from "../services/db_calls"
 import { toast } from "react-toastify"
 
-const SymbolList = ({ portfolioId }: { portfolioId: string}) => {
-	const [symbols, setSymbols] = useState<any[]>([])
+const SymbolList = ({ portfolioId, chartDataCallback }: { portfolioId: string, chartDataCallback: (stocks: Stocks[], stocksValue: { [key: string]: StockValue }) => void }) => {
+	const [symbols, setSymbols] = useState<Stocks[]>([])
 	const [stockValue, setStockValue] = useState<{ [key: string]: StockValue }>({})
 	const [refresh, setRefresh] = useState<boolean>(true)
 
@@ -40,26 +40,33 @@ const SymbolList = ({ portfolioId }: { portfolioId: string}) => {
 	}
 
 	const handleDeleteSymbol = async (id: string, symbol: string, purchasedPrice: number) => {
-
 		let alert = window.confirm(`Are you sure you want to delete ${symbol} ?`)
 
 		if (alert === true) {
 			const result = await deleteSymbolFromPortfolio(id, symbol, purchasedPrice)
 			if (result) {
-				toast.success(`Symbol ${symbol} with purchased price ${purchasedPrice} deleted succesfully`)
+				toast.success(`Symbol ${symbol} with purchased price ${purchasedPrice} deleted successfully`)
 				setRefresh(true)
 			} else {
 				toast.error('Error deleting the symbol')
 			}
 		}
-
 	}
 
 	useEffect(() => {
-		fetchApiData()
-		fetchDbData()
-		setRefresh(false)
+		const fetchData = async () => {
+			await fetchApiData()
+			await fetchDbData()
+			setRefresh(false)
+		}
+		fetchData()
 	}, [portfolioId, refresh])
+
+	useEffect(() => {
+		if (symbols.length > 0 && Object.entries(stockValue).length > 0) {
+			chartDataCallback(symbols, stockValue)
+		}
+	}, [symbols, stockValue])
 
 	return (
 		<div className="symbols-list">

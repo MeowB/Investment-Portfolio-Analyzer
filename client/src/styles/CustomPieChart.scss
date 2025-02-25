@@ -1,1 +1,16 @@
 @import '../styles/helpers/variables';
+
+.custom-tooltip {
+	background-color: #fff;
+	border: 1px solid #ccc;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .custom-tooltip .label {
+	font-size: 14px;
+	font-weight: bold;
+	color: #444;
+  }
+   

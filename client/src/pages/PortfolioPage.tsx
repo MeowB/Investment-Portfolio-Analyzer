@@ -6,18 +6,44 @@ import { FaPenSquare, FaTrash } from "react-icons/fa";
 import SymbolList from "../components/SymbolList";
 import CreatePortfolioForm from "../components/CreatePortfolioForm";
 import CustomActiveShapePieChart from "../components/CustomActiveShapePieChart";
+import { Stocks, StockValue } from '../utils/interfaces'
 
 const PortfolioPage = () => {
     const navigate = useNavigate();
     let { id } = useParams();
     const [portfolio, setPortfolio] = useState<any>(null);
     const [editPortfolio, setEditPortfolio] = useState<boolean>(false);
-
+	const [chartData, setChartData] = useState<any[]>([]);
+	const [totalValue, setTotalValue] = useState<number>(0);
+	const [totalProfitLoss, setTotalProfitLoss] = useState<number>(0);
 
     if (typeof(id) !== 'string') {
         console.error('Invalid ID: The provided ID must be a string.');
         return <p>Error: Invalid portfolio ID.</p>;
     }
+	
+
+	const chartDataCallback = (stocks: Stocks[], stocksValue: { [key: string]: StockValue }) => {
+		let totalValue = 0;
+		let totalProfitLoss = 0;
+
+		const data = stocks.map(stock => {
+			const currentValue = stocksValue[stock.stock_symbols]?.current_price * stock.quantity || 0;
+			const profitLoss = (stocksValue[stock.stock_symbols]?.current_price - stock.purchase_price) * stock.quantity || 0;
+
+			totalValue += currentValue;
+			totalProfitLoss += profitLoss;
+
+			return {
+				name: stock.stock_symbols,
+				value: currentValue,
+			};
+		});
+
+		setChartData(data);
+		setTotalValue(totalValue);
+		setTotalProfitLoss(totalProfitLoss);
+	};
 
     const fetchData = async () => {
         try {
@@ -73,9 +99,16 @@ const PortfolioPage = () => {
                         )}
                     <p>Created on: {new Date(portfolio.timestamp).toLocaleString()}</p>
                     <div className="chart-container">
-                        <CustomActiveShapePieChart />
+                        <CustomActiveShapePieChart data={chartData} />
+						<div className="chart-data">
+							<span>Total Value: ${totalValue.toFixed(2)}</span>
+							{totalProfitLoss > 0 
+							?<p className="profit">Total Profit/Loss: <span className="profit">${totalProfitLoss.toFixed(2)}</span></p>
+							:<p>Total Profit/Loss: <span className="loss">${totalProfitLoss.toFixed(2)}</span></p>}
+							
+						</div>
                     </div>
-                    <SymbolList portfolioId={id} />
+                    <SymbolList portfolioId={id} chartDataCallback={chartDataCallback} />
                 </div>
             ) : (
                 <p>Loading...</p>

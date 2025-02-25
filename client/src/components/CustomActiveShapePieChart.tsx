@@ -1,16 +1,21 @@
-import { PieChart, Pie, Cell, LabelList, Label } from 'recharts';
+import { PieChart, Pie, Cell, LabelList, Label, Tooltip } from 'recharts';
 import '../styles/CustomPieChart.css'
-
-const data = [
-  { name: 'Stock A', value: 400 },
-  { name: 'Stock B', value: 300 },
-  { name: 'Stock C', value: 300 },
-  { name: 'Stock D', value: 200 },
-];
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
-const CustomPieChart = () => (
+const CustomTooltip = ({ active, payload }: { active?: boolean, payload?: any[] }) => {
+  if (active && payload && payload.length) {
+    const { name, value } = payload[0];
+    return (
+      <div className="custom-tooltip">
+        <p className="label">{`${name} : ${value.toFixed(2)}$`}</p>
+      </div>
+    );
+  }
+  return null;
+};
+
+const CustomActiveShapePieChart = ({ data }: { data: any[] }) => (
   <PieChart width={400} height={400}>
     <Pie
       data={data}
@@ -18,6 +23,8 @@ const CustomPieChart = () => (
       cy={200}
       innerRadius={100}
       outerRadius={140}
+      isAnimationActive={true}
+      animationDuration={800}
       fill="#8884d8"
       dataKey="value"
     >
@@ -28,9 +35,9 @@ const CustomPieChart = () => (
         dataKey="name"
         position="outside"
         style={{
-          fill: '#000 !important',  // Check that this is correctly applied
+          fill: '#000',
           fontSize: '14px',
-		  stroke: 'none'
+          stroke: 'none'
         }}
       />
       <Label
@@ -42,8 +49,9 @@ const CustomPieChart = () => (
           fill: '#111',
         }}
       />
-    </Pie>
+    </Pie>	
+    <Tooltip content={<CustomTooltip />} />
   </PieChart>
 );
 
-export default CustomPieChart;
+export default CustomActiveShapePieChart;
