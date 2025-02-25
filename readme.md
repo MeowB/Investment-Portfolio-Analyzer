@@ -1,4 +1,10 @@
 
+## **Live Demo**
+
+You can access the deployed version of the **Investment Portfolio Analyzer** here:
+
+[**Live Demo Link**](https://investment-portfolio-analyzer.vercel.app/)
+
 ---
 
 # **Investment Portfolio Analyzer**
@@ -59,11 +65,6 @@ If the current price is **$130**, the loss would be:
 Profit/Loss = ($130 - $150) * 10 = $200 loss
 ```
 
-## **Live Demo**
-
-You can access the deployed version of the **Investment Portfolio Analyzer** here:
-
-[**Live Demo Link**](https://investment-portfolio-analyzer.vercel.app/)
 
 ## **Future Enhancements**
 - Add user authentication for personalized portfolio management.
