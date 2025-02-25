@@ -5,69 +5,125 @@ You can access the deployed version of the **Investment Portfolio Analyzer** her
 
 [**Live Demo Link**](https://investment-portfolio-analyzer.vercel.app/)
 
----
-
-# **Investment Portfolio Analyzer**
-
-## **Project Description**
-The **Investment Portfolio Analyzer** is a web application that allows users to manage and analyze their stock portfolios. The app fetches real-time stock data from the **Finnhub Stock API** and enables users to input their stock holdings, view the current value of their portfolios, calculate profits and losses, and visualize the data through interactive charts.
-
-### **Features:**
-- **User Input:** Add stocks to your portfolio by entering stock tickers, quantities, purchase dates, and purchase prices.
-- **Real-Time Stock Data:** Fetches live stock prices from Finnhub to update portfolio values.
-- **Profit/Loss Calculation:** Displays profit/loss for each stock and the entire portfolio based on the historical price on the purchase date compared to the current price.
-- **Interactive Visualizations:** Visualize portfolio data with pie charts and historical stock performance using Plotly.
-
-## **Tech Stack**
-- **Backend:**
-  - **Flask:** Python framework used to build the backend API that handles stock data, calculations, and database interactions.
-  - **Finnhub API:** Provides real-time stock price data and historical information.
-  - **SQLite:** Lightweight database used to store user portfolio data.
-  - **python-dotenv:** For managing environment variables, like API keys, securely.
-
-- **Frontend:**
-  - **Vite:** Fast build tool and development server for React, providing an optimal development experience.
-  - **React:** JavaScript library for building the user interface, focusing on a responsive, dynamic experience.
-  - **Axios:** Used for making HTTP requests to the Flask backend.
-  - **React Router DOM:** For client-side routing and navigation.
-
-- **Visualization:**
-  - **Plotly:** Interactive graphing library used to display charts like portfolio distribution and stock price history.
-
-## **Profit/Loss Calculation Method**
-- **User Input:** 
-  - **Stock Ticker** (e.g., AAPL for Apple)
-  - **Quantity of Shares**
-  - **Purchase Date** (the exact date they bought the stock)
-  
-- **Historical Price:**
-  - The **purchase price** is fetched using the **historical closing price** of the stock from the **Finnhub API** on the specific **purchase date** provided by the user.
-
-- **Real-Time Price:**
-  - The **current price** is fetched from the **Finnhub API** in real-time.
-
-- **Profit/Loss Calculation:**
-  - The profit/loss for each stock is calculated as:
-    ```plaintext
-    Profit/Loss = (Current Price - Purchase Price) * Quantity
-    ```
-  - **Purchase Price** is the **historical closing price** from the purchase date.
-  - **Current Price** is the real-time price fetched from the Finnhub API.
-  - The final profit/loss is summed for all stocks in the portfolio to calculate the total.
-
-### **Example:**
-For a user who bought **10 shares of Apple (AAPL)** on **2023-01-15** at a **purchase price of $150** and the **current price** is **$170**, the profit/loss would be:
-```plaintext
-Profit/Loss = ($170 - $150) * 10 = $200 profit
-```
-If the current price is **$130**, the loss would be:
-```plaintext
-Profit/Loss = ($130 - $150) * 10 = $200 loss
-```
-
-
-## **Future Enhancements**
-- Add user authentication for personalized portfolio management.
-- Implement historical stock data tracking and comparison.
 
 ---
+
+# Investment Portfolio Analyzer
+
+An intuitive web application that allows users to track their investments, view real-time portfolio values, profit/loss calculations, and stay updated with the latest market news. Built with a Python Flask backend, React frontend, and Finnhub Stock API for real-time stock data.
+
+## Features
+
+- **Track Your Portfolio:**  
+  Add and manage stock holdings in your portfolio, with real-time updates on each stock's price and performance.
+
+- **Real-Time Portfolio Analytics:**  
+  View your portfolio's overall value and performance, including profits and losses based on stock prices fetched from Finnhub.
+
+- **News Feed:**  
+  Stay informed with the latest market news and financial updates. Powered by Finnhub API, this section shows relevant news articles with summaries and links.
+
+- **Interactive Visualizations:**  
+  Dynamic charts display stock performance in your portfolio and allow you to visualize your stock holdings in pie chart format.
+
+- **Responsive Design:**  
+  The website is optimized for both desktop and mobile devices, ensuring a seamless user experience.
+
+## Technologies Used
+
+- **Backend:**  
+  - **Python**  
+  - **Flask**  
+  - **SQLite**  
+  - **Finnhub API** for stock data and news feed
+
+- **Frontend:**  
+  - **React**  
+  - **TypeScript**  
+  - **SASS** for styling
+
+- **Libraries & Tools:**  
+  - **React Chart.js 2** for data visualization  
+  - **Axios** for API requests  
+  - **Flask-CORS** for handling cross-origin requests  
+  - **React Router** for page navigation
+
+## Setup Instructions
+
+### Prerequisites
+
+- **Node.js** (for frontend)
+- **Python 3.7+** (for backend)
+- **Finnhub API Key** (sign up on [Finnhub](https://finnhub.io/) for a free API key)
+
+### Backend Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/MeowB/investment-portfolio-analyzer.git
+   cd investment-portfolio-analyzer/backend
+   ```
+
+2. Install required Python packages:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Set up your **Finnhub API key** as an environment variable.
+
+4. Run the Flask backend:
+   ```bash
+   flask fill-db
+   flask run
+   ```
+
+   The backend will now be running at `http://localhost:5000`.
+
+### Frontend Setup
+
+1. Navigate to the frontend directory:
+   ```bash
+   cd ../client
+   ```
+
+2. Install required Node packages:
+   ```bash
+   npm install
+   ```
+
+3. Start the React development server:
+   ```bash
+   npm run dev
+   ```
+
+   The frontend will now be running at `http://localhost:5173`.
+
+### Configuration
+
+- Ensure that both the backend and frontend are running concurrently.  
+- The frontend will make API requests to the backend for stock data and news.
+
+## Usage
+
+1. **Create a Portfolio:**  
+   Register or log in to create a personalized portfolio and begin adding stock holdings.
+
+2. **View Portfolio Analytics:**  
+   The homepage displays your portfolio's total value and daily changes, along with news updates and stock performance charts.
+
+3. **Stay Updated with Market News:**  
+   Access the latest financial news and articles, updated in real-time.
+
+## Future Features
+
+- **User Authentication:**  
+  Implement authentication to allow users to save multiple portfolios and access them later.platforms.
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](./copyright.txt) OpenSource website for details.
+
+---
+
+Let me know if you want to tweak or add any details!

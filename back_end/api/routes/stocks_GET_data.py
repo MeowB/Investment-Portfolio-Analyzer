@@ -4,7 +4,6 @@ from ...services.finnhub import fetch_stock_data
 getStocks_bp = Blueprint('getStocks', __name__)
 
 
-# Fetch stock data
 @getStocks_bp.route('/stocks', methods=['GET'])
 def get_stock():
 	symbol = request.args.get('symbol')

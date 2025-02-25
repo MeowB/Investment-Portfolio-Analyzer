@@ -13,8 +13,7 @@ from back_end.db.routes.stocks_DELETE_by_specifics import Stocks_DELETE_by_speci
 from back_end.db.routes.portfolios_UPDATE_by_id import Portfolios_UPDATE_by_id_bp
 from back_end.api.routes.stocks_GET_values_by_portfolio import Stocks_GET_values_by_portfolio_bp
 from back_end.api.routes.stocks_POST_by_portfolio_id import stocks_POST_by_portfolio_id
-import click
-
+from back_end.api.routes.stocks_GET_sector_performance import Sector_performance_bp
 from back_end.db.filldb import fill_db
 
 app = Flask(__name__)
@@ -38,6 +37,7 @@ app.register_blueprint(Stocks_GET_values_by_portfolio_bp)
 app.register_blueprint(Portfolios_UPDATE_by_id_bp)
 app.register_blueprint(stocks_POST_by_portfolio_id)
 app.register_blueprint(Stocks_DELETE_by_specifics)
+app.register_blueprint(Sector_performance_bp)
 
 app.cli.add_command(fill_db)
 

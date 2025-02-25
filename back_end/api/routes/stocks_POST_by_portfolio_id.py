@@ -94,4 +94,3 @@ def add_symbols(id):
 			})
 
 	return jsonify({"results": results}), 200
-		# ...additional processing...

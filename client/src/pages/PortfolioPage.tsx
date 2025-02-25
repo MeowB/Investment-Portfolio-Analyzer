@@ -16,13 +16,13 @@ const PortfolioPage = () => {
 	const [chartData, setChartData] = useState<any[]>([]);
 	const [totalValue, setTotalValue] = useState<number>(0);
 	const [totalProfitLoss, setTotalProfitLoss] = useState<number>(0);
+	const [loading, setLoading] = useState<boolean>(true);
 
     if (typeof(id) !== 'string') {
         console.error('Invalid ID: The provided ID must be a string.');
         return <p>Error: Invalid portfolio ID.</p>;
     }
 	
-
 	const chartDataCallback = (stocks: Stocks[], stocksValue: { [key: string]: StockValue }) => {
 		let totalValue = 0;
 		let totalProfitLoss = 0;
@@ -43,6 +43,7 @@ const PortfolioPage = () => {
 		setChartData(data);
 		setTotalValue(totalValue);
 		setTotalProfitLoss(totalProfitLoss);
+		setLoading(false);
 	};
 
     const fetchData = async () => {
@@ -99,7 +100,11 @@ const PortfolioPage = () => {
                         )}
                     <p>Created on: {new Date(portfolio.timestamp).toLocaleString()}</p>
                     <div className="chart-container">
-                        <CustomActiveShapePieChart data={chartData} />
+                        {loading ? (
+                            <p>Loading...</p>
+                        ) : (
+                            <CustomActiveShapePieChart data={chartData} />
+                        )}
 						<div className="chart-data">
 							<span>Total Value: ${totalValue.toFixed(2)}</span>
 							{totalProfitLoss > 0 
