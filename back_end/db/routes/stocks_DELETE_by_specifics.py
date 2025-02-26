@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from back_end.models.portfolios import PortfoliosStock
+from back_end.models.models import PortfoliosStock
 from app import db
 
 Stocks_DELETE_by_specifics = Blueprint('stocks_delete_by_specifics', __name__)

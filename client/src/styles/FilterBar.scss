@@ -1,0 +1,22 @@
+@import './helpers/variables.scss';
+
+.filter-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-family: $font-family;
+
+    button {
+        background-color: $primary-color;
+        color: $secondary-color;
+        border: none;
+        padding: 10px 20px;
+        margin: 0 5px;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: darken($primary-color, 10%);
+        }
+    }
+}

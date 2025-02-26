@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from back_end.models.portfolios import Portfolios
+from back_end.models.models import Portfolios
 
 Portfolios_GET_bp = Blueprint('portfolios_get', __name__)
 

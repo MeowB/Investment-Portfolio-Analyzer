@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from back_end.models.portfolios import Portfolios
+from back_end.models.models import Portfolios
 from dotenv import load_dotenv
 import os
 import requests
@@ -10,7 +10,7 @@ FINNHUB_BASE_URL = "https://finnhub.io/api/v1"
 FINNHUB_API_KEY = os.getenv('FINNHUB_API_KEY')
 
 from flask import Blueprint, jsonify
-from back_end.models.portfolios import Portfolios
+from back_end.models.models import Portfolios
 
 Stocks_GET_values_by_portfolio_bp = Blueprint('stocks_GET_values_by_portfolio', __name__)
 

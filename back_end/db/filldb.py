@@ -1,6 +1,6 @@
 import random
 from faker import Faker
-from ..models.portfolios import db, Portfolios, PortfoliosStock
+from ..models.models import db, Portfolios, PortfoliosStock
 from flask.cli import with_appcontext
 import click
 

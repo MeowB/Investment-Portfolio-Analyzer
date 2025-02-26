@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from back_end.models.portfolios import Portfolios
+from back_end.models.models import Portfolios
 from app import db
 
 Portfolios_UPDATE_by_id_bp = Blueprint('portfolios_edit_by_id', __name__)

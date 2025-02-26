@@ -6,11 +6,12 @@ header {
 }
 header nav {
   display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
   width: 100%;
   justify-content: space-between;
   align-items: center;
 }
-
 header .nav-logo {
   color: #FFFFFF;
   text-decoration: none;
@@ -19,12 +20,10 @@ header .nav-logo {
 header .nav-logo a {
   color: white;
 }
-
 header .nav-item {
   display: inline-block;
   margin-right: 20px;
 }
-
 header .nav-item a {
   color: #FFFFFF;
   text-decoration: none;
@@ -32,7 +31,19 @@ header .nav-item a {
   border-radius: 4px;
   background-color: #6ec071;
 }
-
 header .nav-item a:hover {
   background-color: #3d8b40;
+}
+
+@media screen and (max-width: 780px) {
+  header nav {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 440px) {
+  header nav ul {
+    display: flex;
+    gap: 25px;
+    flex-direction: column;
+  }
 }/*# sourceMappingURL=Header.css.map */

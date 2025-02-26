@@ -1,6 +1,6 @@
 import os
 from flask import current_app
-from back_end.models.portfolios import db
+from back_end.models.models import db
 
 def init_db(app):
     with current_app.app_context():

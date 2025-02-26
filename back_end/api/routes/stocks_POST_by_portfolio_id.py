@@ -1,5 +1,4 @@
 from flask import Blueprint, jsonify, request
-from back_end.models.portfolios import Portfolios
 from dotenv import load_dotenv
 import requests
 import os
@@ -10,7 +9,7 @@ FINNHUB_QUOTE_URL = "https://finnhub.io/api/v1/quote?symbol={}"
 FINNHUB_API_KEY = os.getenv('FINNHUB_API_KEY')
 
 from flask import Blueprint, jsonify
-from back_end.models.portfolios import PortfoliosStock
+from back_end.models.models import PortfoliosStock
 from app import db
 
 stocks_POST_by_portfolio_id = Blueprint('stocks_post_by_portfolio_id', __name__)
