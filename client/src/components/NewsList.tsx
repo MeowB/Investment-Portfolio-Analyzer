@@ -8,7 +8,6 @@ interface NewsListProps {
 
 const NewsList: React.FC<NewsListProps> = ({ news }) => {
 	console.log()
-
     return (
         <div className='articles'>
             {news.map((article, index) => (
@@ -18,7 +17,7 @@ const NewsList: React.FC<NewsListProps> = ({ news }) => {
                         <h3>{article.title}</h3>
                         <p>{article.description}</p>
                         <p className="article-source">Source: {article.source}</p>
-                        <p className="article-category">Category: {article.category}</p>
+                        <p className="article-author">Author: {article.author ? article.author : 'Anonymous'}</p>
                         <a href={article.url} target="_blank" rel="noopener noreferrer" className="read-more-button">Read More</a>
                     </div>
                 </div>
