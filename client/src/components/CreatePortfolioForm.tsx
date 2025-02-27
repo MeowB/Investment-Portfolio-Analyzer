@@ -1,6 +1,6 @@
 import axios from "axios"
 import { FormEvent, useEffect, useState } from "react"
-import '../styles/forms.css'
+import '../styles/CreatePortfolioForm.css'
 import { toast } from "react-toastify"
 import { useNavigate } from "react-router-dom"
 
@@ -47,7 +47,7 @@ const CreatePortfolioForm = ({ portfolioName = "", portfolioDescription = "", ed
 					name,
 					description
 				})
-	
+
 				toast.success(response.data.message)
 				navigate('/portfolios')
 			}
@@ -59,20 +59,26 @@ const CreatePortfolioForm = ({ portfolioName = "", portfolioDescription = "", ed
 	}
 
 	return (
-		<form onSubmit={(e) => handleSubmit(e)}>
-			<input
-				type="text"
-				placeholder="Portfolio name"
-				value={name}
-				onChange={(e) => setName(e.target.value)}
-			/>
-			<textarea
-				placeholder="Portfolio description"
-				value={description}
-				onChange={(e) => setDescription(e.target.value)}
-			/>
-			<button type="submit">{edit ? 'Update Portfolio' : 'Create Portfolio'}</button>
-		</form>
+		<div className="create-portfolio-form-container">
+			<div className="create-portfolio-form">
+				<h1>Create Your Own Portfolio</h1>
+
+				<form onSubmit={(e) => handleSubmit(e)} className="create-portfolio-form">
+					<input
+						type="text"
+						placeholder="Portfolio name"
+						value={name}
+						onChange={(e) => setName(e.target.value)}
+					/>
+					<textarea
+						placeholder="Portfolio description"
+						value={description}
+						onChange={(e) => setDescription(e.target.value)}
+					/>
+					<button type="submit">{edit ? 'Update Portfolio' : 'Create Portfolio'}</button>
+				</form>
+			</div>
+		</div>
 	)
 }
 

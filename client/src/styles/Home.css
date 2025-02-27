@@ -2,54 +2,61 @@
 .home-container {
   background-color: #F5F5F5;
   color: #333333;
-  padding: 20px;
   font-family: "Merriweather", serif;
 }
 .home-container .hero-section {
-  background-image: url("/path/to/your/image.jpg");
+  background-image: linear-gradient(360deg, #F5F5F5 2%, rgba(0, 0, 0, 0) 72%), url("../assets/photo-1470082719408-b2843ab5c9ab.avif");
   background-size: cover;
   background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: #FFFFFF;
   padding: 60px 20px;
   text-align: center;
 }
 .home-container .hero-section h1 {
   font-size: 36px;
+  margin-top: 60px;
   margin-bottom: 20px;
+  text-shadow: 2px 2px 5px #000;
 }
-.home-container .hero-section p {
+.home-container .hero-section > p {
   font-size: 18px;
-  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px #000;
 }
-.home-container .cta-section {
-  background-color: #4CAF50;
+.home-container .hero-section .cta-div {
+  background-color: #4DA852;
   color: #FFFFFF;
   padding: 40px 20px;
   text-align: center;
-  margin-top: -20px;
+  margin-top: 110px;
+  width: 60%;
+  border-radius: 15px;
+  box-shadow: 3px 3px 7px #777;
 }
-.home-container .cta-section h2 {
+.home-container .hero-section .cta-div h2 {
   font-size: 28px;
   margin-bottom: 20px;
 }
-.home-container .cta-section p {
+.home-container .hero-section .cta-div p {
   font-size: 16px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
-.home-container .cta-section .cta-button {
+.home-container .hero-section .cta-div .cta-link {
   background-color: #FFFFFF;
-  color: #4CAF50;
+  color: #4DA852;
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
   font-size: 16px;
   cursor: pointer;
 }
-.home-container .cta-section .cta-button:hover {
+.home-container .hero-section .cta-div .cta-link:hover {
   background-color: white;
 }
 .home-container .news-feed {
-  padding: 20px;
+  padding: 60px;
 }
 .home-container .news-feed .text {
   width: 100%;

@@ -1,29 +1,44 @@
 @import './helpers/variables.scss';
-
-form {
-	background-color: $secondary-color;
-	padding: 20px;
-	border-radius: 8px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-form input,
-form button {
-	display: block;
+.create-portfolio-form-container {
+	height: calc(100vh - 126px);
 	width: 100%;
-	margin-bottom: 10px;
-	padding: 10px;
-	border: 1px solid #ccc;
-	border-radius: 4px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
+.create-portfolio-form {
+	width: 500px;
+	background-color: $secondary-color;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+	padding: 40px;
+	border-radius: 15px;
+	box-shadow: 2px 2px 5px #555;
 
-form button {
-	background-color: $primary-color;
-	color: $secondary-color;
-	border: none;
-	cursor: pointer;
-}
+	form {
+		box-shadow: none;
+	}
 
-form button:hover {
-	background-color: darken($primary-color, 10%);
+	input {
+		border-radius: 5px;
+		padding: 10px;
+		width: 100%;
+	}
+
+	textarea {
+		height: 150px;
+		width: 100%;
+		padding: 10px;
+	}
+
+	button {
+		width: 180px;
+		padding: 10px 15px;
+		background-color: $primary-color;
+		border: none;
+		border-radius: 5px;
+		color: $secondary-color;
+	}
 }

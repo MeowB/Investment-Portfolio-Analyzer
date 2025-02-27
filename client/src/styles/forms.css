@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap");
 form {
   background-color: #FFFFFF;
   padding: 20px;
@@ -17,12 +18,12 @@ textarea {
 }
 
 form button {
-  background-color: #4CAF50;
+  background-color: #4DA852;
   color: #FFFFFF;
   border: none;
   cursor: pointer;
 }
 
 form button:hover {
-  background-color: #3d8b40;
+  background-color: #3d8541;
 }/*# sourceMappingURL=forms.css.map */

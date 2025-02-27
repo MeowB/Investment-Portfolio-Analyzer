@@ -27,11 +27,11 @@ const Home = () => {
 			<section className="hero-section">
 				<h1>Take Control of Your Financial Future</h1>
 				<p>Analyze. Optimize. Grow. Make informed investment decisions with real-time insights.</p>
-			</section>
-			<section className="cta-section">
-				<h2>Start Managing Your Portfolio Today</h2>
-				<p>Maximize your returns and minimize risks with our powerful analytics tools.</p>
-				<button className="cta-button">Join Now – It’s Free!</button>
+				<div className="cta-div">
+					<h2>Start Managing Your Portfolio Today</h2>
+					<p>Maximize your returns and minimize risks with our powerful analytics tools.</p>
+					<a className="cta-link" href="/create">Create Your Portfolio</a>
+				</div>
 			</section>
 			<section className="news-feed">
 				<div className="text">

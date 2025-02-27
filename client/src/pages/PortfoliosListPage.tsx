@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 
 const PortfolioListPage = () => {
 	let [portfolioList, setPortfolioList] = useState([])
+	let [loading, setLoading] = useState(true)
 
 	const fetchData = async () => {
 		try {
@@ -12,6 +13,8 @@ const PortfolioListPage = () => {
 			setPortfolioList(response)
 		} catch (error) {
 			console.error("Error fetching portfolios:", error)
+		} finally {
+			setLoading(false)
 		}
 	}
 	
@@ -25,15 +28,19 @@ const PortfolioListPage = () => {
 
 	return (
 		<div className="portfolio-list">
-			{portfolioList && portfolioList.map((portfolio: any, index) => (
-				<Link key={index} className="portfolio-card" to={`/portfolios/${portfolio.id}`}>
-					<div>
-						<h3>{portfolio.name}</h3>
-						<p>Description: <br /> {portfolio.description}</p>
-						<p>Created on {formatTimestamp(portfolio.timestamp).slice(0, 10)}</p>
-					</div>
-				</Link>
-			))}
+			{loading ? (
+				<p>Loading...</p>
+			) : (
+				portfolioList && portfolioList.map((portfolio: any, index) => (
+					<Link key={index} className="portfolio-card" to={`/portfolios/${portfolio.id}`}>
+						<div>
+							<h3>{portfolio.name}</h3>
+							<p>Description: <br /> {portfolio.description}</p>
+							<p>Created on {formatTimestamp(portfolio.timestamp).slice(0, 10)}</p>
+						</div>
+					</Link>
+				))
+			)}
 		</div>
 	)
 }

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap");
 header {
   background-color: #333333;
   padding: 20px;
@@ -29,10 +30,10 @@ header .nav-item a {
   text-decoration: none;
   padding: 10px;
   border-radius: 4px;
-  background-color: #6ec071;
+  background-color: #6cbc71;
 }
 header .nav-item a:hover {
-  background-color: #3d8b40;
+  background-color: #3d8541;
 }
 
 @media screen and (max-width: 780px) {

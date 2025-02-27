@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap");
 .single-portfolio {
   background-color: #F5F5F5;
   padding: 20px;
@@ -15,20 +16,20 @@
   gap: 10px;
 }
 .single-portfolio .portfolio-actions svg {
-  color: #4CAF50;
+  color: #4DA852;
   cursor: pointer;
   transition: color 0.2s;
   width: 24px;
   height: 24px;
 }
 .single-portfolio .portfolio-actions svg:hover {
-  color: #3d8b40;
+  color: #3d8541;
 }
 .single-portfolio form {
   margin-top: 38px;
 }
 .single-portfolio h1 {
-  color: #4CAF50;
+  color: #4DA852;
   margin-bottom: 10px;
 }
 .single-portfolio p {
@@ -38,7 +39,7 @@
 }
 .single-portfolio .chart-container {
   background-color: #FFFFFF;
-  border: 1px solid #4CAF50;
+  border: 1px solid #4DA852;
   border-radius: 5px;
   padding: 20px;
   margin-top: 20px;

@@ -6,7 +6,7 @@
   font-family: "Merriweather", serif;
 }
 .filter-bar button {
-  background-color: #4CAF50;
+  background-color: #4DA852;
   color: #FFFFFF;
   border: none;
   padding: 10px 20px;
@@ -15,5 +15,5 @@
   cursor: pointer;
 }
 .filter-bar button:hover {
-  background-color: #3d8b40;
+  background-color: #3d8541;
 }/*# sourceMappingURL=FilterBar.css.map */
