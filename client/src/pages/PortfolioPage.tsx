@@ -106,10 +106,10 @@ const PortfolioPage = () => {
                             <CustomActiveShapePieChart data={chartData} />
                         )}
 						<div className="chart-data">
-							<span>Total Value: ${totalValue.toFixed(2)}</span>
+							<span>Total Value: {new Intl.NumberFormat('en-US', { style: 'decimal', minimumFractionDigits: 2 }).format(totalValue)}$</span>
 							{totalProfitLoss > 0 
-							?<p className="profit">Total Profit/Loss: <span className="profit">${totalProfitLoss.toFixed(2)}</span></p>
-							:<p>Total Profit/Loss: <span className="loss">${totalProfitLoss.toFixed(2)}</span></p>}
+							?<p className="profit">Total Profit/Loss: <span className="profit">${new Intl.NumberFormat('en-US', { style: 'decimal', minimumFractionDigits: 2 }).format(totalProfitLoss)}</span></p>
+							:<p>Total Profit/Loss: <span className="loss">{new Intl.NumberFormat('en-US', { style: 'decimal', minimumFractionDigits: 2 }).format(totalProfitLoss)}$</span></p>}
 							
 						</div>
                     </div>

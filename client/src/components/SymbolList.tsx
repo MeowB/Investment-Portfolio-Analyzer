@@ -28,15 +28,17 @@ const SymbolList = ({ portfolioId, chartDataCallback }: { portfolioId: string, c
 		let purchasedPrice = stock.purchase_price
 		let quantity = stock.quantity
 		let value = ((currentPrice - purchasedPrice) * quantity).toFixed(2)
+		const formattedValue = new Intl.NumberFormat('en-US', { style: 'decimal', minimumFractionDigits: 2 }).format(+value)
 		if (+value > 0) {
-			return <span className="profit"><strong>{String(value)}$</strong></span>
+			return <span className="profit"><strong>{formattedValue}$</strong></span>
 		} else {
-			return <span className="loss"><strong>{String(value)}$</strong></span>
+			return <span className="loss"><strong>{formattedValue}$</strong></span>
 		}
 	}
 
 	const calculateCurrentValue = (stock: Stocks) => {
-		return (stockValue[stock.stock_symbols].current_price * stock.quantity).toFixed(2)
+		const value = (stockValue[stock.stock_symbols].current_price * stock.quantity).toFixed(2)
+		return new Intl.NumberFormat('en-US', { style: 'decimal', minimumFractionDigits: 2 }).format(+value)
 	}
 
 	const handleDeleteSymbol = async (id: string, symbol: string, purchasedPrice: number) => {
@@ -73,7 +75,7 @@ const SymbolList = ({ portfolioId, chartDataCallback }: { portfolioId: string, c
 					<li key={index} className="symbol-item">
 						<div className="primary-content">
 							<h3>{stock.stock_symbols}</h3>
-							<span>Purchased price: {stock.purchase_price + '$'}</span>
+							<span>Purchased price: {new Intl.NumberFormat('en-US', { style: 'decimal', minimumFractionDigits: 2 }).format(stock.purchase_price)}$</span>
 							<span>Quantity: {stock.quantity}</span>
 						</div>
 
@@ -81,7 +83,7 @@ const SymbolList = ({ portfolioId, chartDataCallback }: { portfolioId: string, c
 							{
 								stockValue[stock.stock_symbols] && (
 									<>
-										<p>Current Value: {calculateCurrentValue(stock) + '$'}</p>
+										<p>Current Value: {calculateCurrentValue(stock)}$</p>
 										<p>Profit/Loss: {displayProfitLoss(stock)}</p>
 									</>
 								)
@@ -95,7 +97,6 @@ const SymbolList = ({ portfolioId, chartDataCallback }: { portfolioId: string, c
 				))}
 			</ul>
 			<SymbolForm setRefresh={setRefresh} portfolioId={portfolioId} />
-
 		</div>
 	)
 }
