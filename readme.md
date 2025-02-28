@@ -5,6 +5,13 @@ You can access the deployed version of the **Investment Portfolio Analyzer** her
 
 [**Live Demo Link**](https://investment-portfolio-analyzer.vercel.app/)
 
+## **Project Reflection: My Full-Stack Development Journey**
+
+Read about my journey building the investment portfolio analyzer here:
+
+[**Full Article**](https://medium.com/@meolearn/one-week-to-get-hired-4716a634295f)
+
+
 
 ---
 
