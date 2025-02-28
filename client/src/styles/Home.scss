@@ -89,6 +89,35 @@
 			display: grid;
 			grid-template-columns: 1fr 1fr 1fr;
 			gap: 20px;
+			flex-wrap: wrap;
+		}
+	}
+}
+
+@media screen and (max-width: 1040px) {
+	.home-container {
+		background-color: $background-color;
+		color: $text-color;
+		font-family: $font-family;
+
+		.news-feed {
+
+			.articles {
+				grid-template-columns: 1fr 1fr;}
+		}
+	}
+}
+
+@media screen and (max-width: 880px) {
+	.home-container {
+		background-color: $background-color;
+		color: $text-color;
+		font-family: $font-family;
+
+		.news-feed {
+
+			.articles {
+				grid-template-columns: 1fr;}
 		}
 	}
 }

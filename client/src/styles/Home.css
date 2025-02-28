@@ -75,4 +75,26 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1040px) {
+  .home-container {
+    background-color: #F5F5F5;
+    color: #333333;
+    font-family: "Merriweather", serif;
+  }
+  .home-container .news-feed .articles {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 880px) {
+  .home-container {
+    background-color: #F5F5F5;
+    color: #333333;
+    font-family: "Merriweather", serif;
+  }
+  .home-container .news-feed .articles {
+    grid-template-columns: 1fr;
+  }
 }/*# sourceMappingURL=Home.css.map */

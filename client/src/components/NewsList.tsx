@@ -10,7 +10,6 @@ const NewsList: React.FC<NewsListProps> = ({ news }) => {
 	const [fadeIn, setFadeIn] = useState<boolean>(false);
 
 	useEffect(() => {
-		console.log(news.length)
 		if (news.length > 0) {
 			setFadeIn(false);
 			const timer = setTimeout(() => setFadeIn(true), 50);

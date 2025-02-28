@@ -16,4 +16,15 @@
 }
 .filter-bar button:hover {
   background-color: #3d8541;
+}
+
+@media screen and (max-width: 830px) {
+  .filter-bar {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  .filter-bar button {
+    width: 200px;
+  }
 }/*# sourceMappingURL=FilterBar.css.map */
