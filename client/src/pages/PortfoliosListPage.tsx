@@ -37,7 +37,6 @@ const PortfolioListPage = () => {
 			) : (
 				portfolioList && portfolioList.map((portfolio: any, index) => (
 					<Link
-						style={{ animationDelay: `${index * 0.5}` }}
 						key={index}
 						className={`portfolio-card ${fadeIn ? "fade-in" : ""}`}
 						style={{ animationDelay: `${index * 0.2}s` }}
