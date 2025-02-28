@@ -6,6 +6,7 @@ import { Link } from "react-router-dom"
 const PortfolioListPage = () => {
 	let [portfolioList, setPortfolioList] = useState([])
 	let [loading, setLoading] = useState(true)
+	const [fadeIn, setFadeIn] = useState(false);
 
 	const fetchData = async () => {
 		try {
@@ -17,9 +18,12 @@ const PortfolioListPage = () => {
 			setLoading(false)
 		}
 	}
-	
+
 	useEffect(() => {
 		fetchData()
+		const timer = setTimeout(() => setFadeIn(true), 500);
+		return () => clearTimeout(timer);
+
 	}, [])
 
 	const formatTimestamp = (timestamp: string) => {
@@ -32,7 +36,13 @@ const PortfolioListPage = () => {
 				<p>Loading...</p>
 			) : (
 				portfolioList && portfolioList.map((portfolio: any, index) => (
-					<Link key={index} className="portfolio-card" to={`/portfolios/${portfolio.id}`}>
+					<Link
+						style={{ animationDelay: `${index * 0.5}` }}
+						key={index}
+						className={`portfolio-card ${fadeIn ? "fade-in" : ""}`}
+						style={{ animationDelay: `${index * 0.2}s` }}
+						to={`/portfolios/${portfolio.id}`}
+					>
 						<div>
 							<h3>{portfolio.name}</h3>
 							<p>Description: <br /> {portfolio.description}</p>

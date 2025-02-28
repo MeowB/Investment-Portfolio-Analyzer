@@ -1,7 +1,22 @@
 @import './helpers/variables.scss';
 
+
+.fade-in {
+	opacity: 1;
+	animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
 .article {
-    background-color: $secondary-color;
+	background-color: $secondary-color;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -11,6 +26,8 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	transition: opacity 1s linear;
+	opacity: 0;
 
     .article-image {
         width: 100%;

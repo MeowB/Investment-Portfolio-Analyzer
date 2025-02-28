@@ -22,6 +22,10 @@ const Home = () => {
 		getData(category);
 	}, [category]);
 
+	useEffect(() => {
+		window.scrollTo(0,0)
+	}, [])
+
 	return (
 		<div className="home-container">
 			<section className="hero-section">
