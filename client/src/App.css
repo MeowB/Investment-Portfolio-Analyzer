@@ -10,6 +10,10 @@
   position: absolute;
 }
 
+main {
+  flex-grow: 1;
+}
+
 body {
   font-family: Arial, sans-serif;
   background-color: #F5F5F5;

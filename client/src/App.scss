@@ -12,6 +12,10 @@
 	}
 }
 
+main {
+	flex-grow: 1;
+}
+
 body {
 	font-family: Arial, sans-serif;
 	background-color: $background-color;

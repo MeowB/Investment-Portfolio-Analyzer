@@ -1,6 +1,5 @@
 from flask import Blueprint, jsonify, request
 from dotenv import load_dotenv
-import time
 import os
 import requests
 from datetime import datetime
@@ -21,7 +20,6 @@ def get_news():
     
     url = f"{NEWS_ENDPOINT_URL}?category={category}&apiKey={NEWS_API_KEY}"
     response = requests.get(url)
-    print(response)
     
     if response.status_code != 200:
         news_history = NewsHistory.query.filter_by(category=category).all()
@@ -34,11 +32,12 @@ def get_news():
                 "author": news.author,
                 "content": news.content,
                 "description": news.description,
-                "publishedAt": news.published_at,
+                "publishedAt": news.publishedAt,
                 "source": news.source,
                 "title": news.title,
                 "url": news.url,
-                "urlToImage": news.url_to_image
+                "urlToImage": news.urlToImage,
+                "category": news.category
             })
         
         return jsonify(formatted_articles), 200
@@ -48,7 +47,7 @@ def get_news():
 
     formatted_articles = []
     for article in articles:
-        formatted_articles.append({
+        formatted_article = {
             "author": article.get("author"),
             "content": article.get("content"),
             "description": article.get("description"),
@@ -56,17 +55,25 @@ def get_news():
             "source": article.get("source", {}).get("name"),
             "title": article.get("title"),
             "url": article.get("url"),
-            "urlToImage": article.get("urlToImage")
-        })
+            "urlToImage": article.get("urlToImage"),
+            "category": category
+        }
+        formatted_articles.append(formatted_article)
+
+        # Save to database
+        news_entry = NewsHistory(
+            author=formatted_article["author"],
+            content=formatted_article["content"],
+            description=formatted_article["description"],
+            publishedAt=datetime.strptime(formatted_article["publishedAt"], "%Y-%m-%dT%H:%M:%SZ"),
+            source=formatted_article["source"],
+            title=formatted_article["title"],
+            url=formatted_article["url"],
+            urlToImage=formatted_article["urlToImage"],
+            category=formatted_article["category"]
+        )
+        db.session.add(news_entry)
+
+    db.session.commit()
 
     return jsonify(formatted_articles), 200
-
-def limit_sources(news, max_per_source=3):
-    source_count = {}
-    filtered_news = []
-    for item in news:
-        source = item.get('source')
-        if source_count.get(source, 0) < max_per_source:
-            filtered_news.append(item)
-            source_count[source] = source_count.get(source, 0) + 1
-    return filtered_news
