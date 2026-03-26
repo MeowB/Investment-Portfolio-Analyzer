@@ -1,6 +1,7 @@
 import axios from "axios"
 import { toast } from "react-toastify"
 const API_URL = 'https://portfolio-analyzer-9aa13095c684.herokuapp.com/api'
+// const API_URL = 'http://127.0.0.1:5000/api'
 
 export const fetchPortfoliosList = async () => {
 	try {

@@ -5,8 +5,8 @@ db = SQLAlchemy()
 
 class Portfolios(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False)
-    description = db.Column(db.String(200), nullable=True)
+    name = db.Column(db.Text, nullable=False)
+    description = db.Column(db.Text, nullable=True)
     timestamp = db.Column(db.DateTime, default=datetime.now)
 
     stocks = db.relationship('PortfoliosStock', backref='portfolio', cascade='all, delete-orphan')
@@ -20,22 +20,22 @@ class Portfolios(db.Model):
 
 class PortfoliosStock(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    stock_symbol = db.Column(db.String(10), nullable=False)
+    stock_symbol = db.Column(db.Text, nullable=False)
     quantity = db.Column(db.Integer, nullable=False)
     purchase_price = db.Column(db.Float, nullable=False)
     portfolio_id = db.Column(db.Integer, db.ForeignKey('portfolios.id'), nullable=False)
 
 class NewsHistory(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    author = db.Column(db.String(100), nullable=True)
+    author = db.Column(db.Text, nullable=True)
     content = db.Column(db.Text, nullable=True)
     description = db.Column(db.Text, nullable=True)
     publishedAt = db.Column(db.DateTime, nullable=False)
-    source = db.Column(db.String(100), nullable=False)
-    title = db.Column(db.String(200), nullable=False)
-    url = db.Column(db.String(200), nullable=False)
-    urlToImage = db.Column(db.String(200), nullable=True)
-    category = db.Column(db.String(50), nullable=False)
+    source = db.Column(db.Text, nullable=False)
+    title = db.Column(db.Text, nullable=False)
+    url = db.Column(db.Text, nullable=False)
+    urlToImage = db.Column(db.Text, nullable=True)
+    category = db.Column(db.Text, nullable=False)
 
     def to_dict(self):
         return {

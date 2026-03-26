@@ -16,7 +16,7 @@ Stocks_GET_values_by_portfolio_bp = Blueprint('stocks_GET_values_by_portfolio', 
 
 @Stocks_GET_values_by_portfolio_bp.route('/api/portfolios/<int:id>/stocks-values', methods=['GET'])
 def get_portfolio_by_id(id):
-	print('hitting stock values route')
+	print('hitting stock values route for: ', id)
 	portfolio = Portfolios.query.get(id)
 	if not portfolio:
 		return jsonify({"error": "Portfolio not found"})

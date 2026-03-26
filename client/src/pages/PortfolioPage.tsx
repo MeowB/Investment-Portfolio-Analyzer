@@ -49,6 +49,7 @@ const PortfolioPage = () => {
     const fetchData = async () => {
         try {
             let response = await fetchPortfolio(id);
+			console.log(id)
             setPortfolio(response);
         } catch (error) {
             console.error("Error fetching portfolio:", error);

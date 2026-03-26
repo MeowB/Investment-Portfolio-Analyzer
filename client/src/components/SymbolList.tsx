@@ -14,13 +14,23 @@ const SymbolList = ({ portfolioId, chartDataCallback }: { portfolioId: string, c
 	const [refresh, setRefresh] = useState<boolean>(true)
 
 	const fetchDbData = async () => {
-		const data = await fetchPortfolioData(portfolioId)
-		setSymbols(data.stocks)
+		try {
+			const data = await fetchPortfolioData(portfolioId)
+			console.log(data)
+			setSymbols(data.stocks)
+		} catch (err) {
+			console.log(`error fetching portfolioData: ${err}`)
+		}
 	}
 
 	const fetchApiData = async () => {
-		const data = await fetchPortfolioStockValues(portfolioId)
-		setStockValue(data)
+		try {
+			const data = await fetchPortfolioStockValues(portfolioId)
+			console.log(data)
+			setStockValue(data)
+		} catch (err) {
+			console.log(`error fetching portfolioData: ${err}`)
+		}
 	}
 
 	const displayProfitLoss = (stock: Stocks) => {
