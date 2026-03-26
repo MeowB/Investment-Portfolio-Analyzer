@@ -71,14 +71,20 @@ An intuitive web application that allows users to track their investments, view 
    cd investment-portfolio-analyzer/backend
    ```
 
-2. Install required Python packages:
+2. Run the environment
+   ```bash
+   py -3 -m venv .venv
+   .venv\Scripts\activate
+   ```
+
+4. Install required Python packages:
    ```bash
    pip install -r requirements.txt
    ```
 
-3. Set up your **Finnhub API key** as an environment variable.
+5. Set up your **Finnhub API key** as an environment variable.
 
-4. Run the Flask backend:
+6. Run the Flask backend:
    ```bash
    flask fill-db
    flask run
@@ -90,7 +96,7 @@ An intuitive web application that allows users to track their investments, view 
 
 1. Navigate to the frontend directory:
    ```bash
-   cd ../client
+   cd ./client
    ```
 
 2. Install required Node packages:
