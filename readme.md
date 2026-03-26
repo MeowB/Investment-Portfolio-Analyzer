@@ -96,7 +96,7 @@ An intuitive web application that allows users to track their investments, view 
 
 1. Navigate to the frontend directory:
    ```bash
-   cd ../client
+   cd ./client
    ```
 
 2. Install required Node packages:
